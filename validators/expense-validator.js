@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const expenseSchema = Joi.object({
+export const addExpenseValidatior = Joi.object({
   amount: Joi.number().greater(0).required()
       .messages({
           'number.base': 'Amount must be a number',
@@ -21,3 +21,4 @@ const expenseSchema = Joi.object({
           'any.required': 'Date is required'
       })
 });
+
