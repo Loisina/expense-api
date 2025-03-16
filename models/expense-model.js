@@ -1,4 +1,5 @@
 import mongoose, { Schema, model } from "mongoose";
+import normalize from "normalize-mongoose"
 
 
 const expenseSchema = new Schema({
@@ -6,7 +7,12 @@ const expenseSchema = new Schema({
   amount: { type: Number, required: true },
   category: { type: String, required: true },
   date: { type: Date, required: true }
-})
+},{
+  timestamps: true
+});
+
+expenseSchema.plugin(normalize)
+
 
 export const ExpenseModel = model ("Expense", expenseSchema)
   
